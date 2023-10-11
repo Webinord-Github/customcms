@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', function() { 
+Route::get('/admin', function() {
     return view('admin.index');
 })->middleware('admin');
 
@@ -28,6 +28,8 @@ Route::get('/admin', function() {
 Route::resource('/admin/users', 'App\Http\Controllers\Admin\UsersController');
 
 Route::put('/admin/users/{user}/status', 'App\Http\Controllers\Admin\UsersController@updateUserPassword')->name('users.update-password');
+
+Route::resource('/admin/blog', 'App\Http\Controllers\Admin\BlogController');
 
 Route::resource('/admin/medias', 'App\Http\Controllers\Admin\MediasController');
 
