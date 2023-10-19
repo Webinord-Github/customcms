@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    public function users() {
-        return $this->belongsToMany('App\Models\User');
+    public function posts() {
+        return $this->belongsToMany('App\Models\Post');
     }
 }

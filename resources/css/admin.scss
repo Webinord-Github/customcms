@@ -9,7 +9,6 @@ main {
     .container {
         max-width: 100%!important;
         display: flex;
-        justify-content: flex-end;
         .pagesContainer {
             width: calc(100% - 250px);
             padding: 20px;
@@ -20,7 +19,7 @@ main {
         .formContainer {
             width: calc(100% - 250px);
         }
-          
+
         table {
             tbody {
                 tr {
@@ -68,14 +67,14 @@ main {
                 padding: 10px 0px;
                 color: #9ca3af;
                 font-size: 14px;
-                
+
             }
             .navLink {
                 a {
                     padding: 15px;
                     color: #fff;
                     display: flex;
-                } 
+                }
             }
             .navLink:hover {
                 background-color: #374151;

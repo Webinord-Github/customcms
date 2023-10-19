@@ -49,11 +49,11 @@ class User extends Authenticatable
     public function medias() {
         return $this->hasMany('App\Models\Media');
     }
-    
+
     public function roles() {
         return $this->belongsToMany('App\Models\Role');
     }
-    
+
     public function isAdminOrEditor() {
         return $this->hasAnyRole(['admin', 'editor']);
     }
@@ -64,5 +64,10 @@ class User extends Authenticatable
 
     public function hasRole($role) {
         return null != $this->roles()->where('name', $role)->first();
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

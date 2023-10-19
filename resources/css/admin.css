@@ -1,8 +1,6 @@
 main {
   min-height: inherit;
   margin-top: -65px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 main .dashboard__container {
@@ -10,12 +8,7 @@ main .dashboard__container {
 }
 main .container {
   max-width: 100% !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 main .container .pagesContainer {
   width: calc(100% - 250px);
@@ -30,7 +23,6 @@ main .container .formContainer {
 main .container table tbody tr .mediaData {
   height: 4rem;
   padding: 0.5rem 1rem;
-  max-width: -webkit-min-content;
   max-width: -moz-min-content;
   max-width: min-content;
 }
@@ -48,12 +40,8 @@ main .adminNav {
   background-color: #000;
 }
 main .adminNav .dashboard__div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   width: 100%;
   margin: 20px 0px;
   padding: 10px 0px;
@@ -80,8 +68,6 @@ main .adminNav .sectionDiv p {
 main .adminNav .sectionDiv .navLink a {
   padding: 15px;
   color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 main .adminNav .sectionDiv .navLink:hover {
@@ -95,29 +81,20 @@ main .adminNav .logoutDiv {
 main .adminNav .logoutDiv a {
   padding: 15px;
   color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   font-weight: bold;
   width: 100%;
 }
 main .adminNav .logoutDiv:hover {
-  -webkit-filter: contrast(65%);
-          filter: contrast(65%);
+  filter: contrast(65%);
 }
 main .adminNav .admin__logo {
   position: absolute;
   bottom: 80px;
   width: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 main .adminNav .admin__logo img {
   width: 200px;

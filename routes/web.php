@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +30,6 @@ Route::resource('/admin/users', 'App\Http\Controllers\Admin\UsersController');
 
 Route::put('/admin/users/{user}/status', 'App\Http\Controllers\Admin\UsersController@updateUserPassword')->name('users.update-password');
 
-Route::resource('/admin/blog', 'App\Http\Controllers\Admin\BlogController');
-
 Route::resource('/admin/medias', 'App\Http\Controllers\Admin\MediasController');
 
 Route::resource('/admin/pages', 'App\Http\Controllers\Admin\PagesController');
@@ -46,6 +45,13 @@ Route::middleware('auth')->group(function () {
 })->middleware('admin');
 
 Route::get('/{url}', 'App\Http\Controllers\Admin\PagesController@view')->name('home.page');
+
+Route::get('/admin/posts', [BlogController::class, 'posts'])->name('posts')->middleware('auth');
+Route::get('/admin/posts/create', [BlogController::class, 'create'])->middleware('auth');
+Route::post('/admin/posts/store', [BlogController::class, 'store'])->middleware('auth');
+Route::get('/admin/posts/update/{id}', [BlogController::class, 'update'])->middleware('auth');
+Route::post('/admin/posts/update/', [BlogController::class, 'storeUpdate'])->middleware('auth');
+Route::get('/admin/posts/destroy/{id}', [BlogController::class, 'destroy'])->middleware('auth');
 
 
 require __DIR__.'/auth.php';

@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Category;
 
 class PostsTableSeeder extends Seeder
 {
@@ -16,32 +17,46 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin = User::find(1);
-
         Post::truncate();
 
-        $admin->pages()->saveMany([
-            new Post([
-                'title' => 'Post 1',
-                'slug' => 'post-1',
-                'excerpt' => 'Post 1 Excerpt',
-                'status' => 'Published',
-                'body' => 'My first post.'
-            ]),
-            new Post([
-                'title' => 'Post 2',
-                'slug' => 'post-2',
-                'excerpt' => 'Post 2 Excerpt',
-                'status' => 'Archived',
-                'body' => 'My second post.'
-            ]),
-            new Post([
-                'title' => 'Post 3',
-                'slug' => 'post-3',
-                'excerpt' => 'Post 3 Excerpt',
-                'status' => 'Draft',
-                'body' => 'Another post.'
-            ]),
+        $post = Post::create([
+            'title' => 'Post 1',
+            'user_id' => 1,
+            'slug' => 'post-1',
+            'excerpt' => 'My first post.',
+            'status' => 'published',
+            'body' => 'My first post.'
         ]);
+        $post->categories()->sync([1,3]);
+
+        $post = Post::create([
+            'title' => 'Post 2',
+            'user_id' => 1,
+            'slug' => 'post-2',
+            'excerpt' => 'My first post.',
+            'status' => 'draft',
+            'body' => 'My first post.'
+        ]);
+        $post->categories()->sync([1,4]);
+
+        $post = Post::create([
+            'title' => 'Post 3',
+            'user_id' => 2,
+            'slug' => 'post-3',
+            'excerpt' => 'My first post.',
+            'status' => 'draft',
+            'body' => 'My first post.'
+        ]);
+        $post->categories()->sync([2,3]);
+
+        $post = Post::create([
+            'title' => 'Post 4',
+            'user_id' => 2,
+            'slug' => 'post-4',
+            'excerpt' => 'My first post.',
+            'status' => 'archived',
+            'body' => 'My first post.'
+        ]);
+        $post->categories()->sync([2,4]);
     }
 }
