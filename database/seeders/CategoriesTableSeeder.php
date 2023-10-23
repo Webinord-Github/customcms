@@ -17,9 +17,9 @@ class CategoriesTableSeeder extends Seeder
     {
         Category::truncate();
 
-        Category::create(['name'=>'comedy']);
-        Category::create(['name'=>'news']);
-        Category::create(['name'=>'horror']);
-        Category::create(['name'=>'facts']);
+        Category::create(['name'=>'Event']);
+        Category::create(['name'=>'News']);
+        Category::create(['name'=>'Promo']);
+        Category::create(['name'=>'Facts']);
     }
 }

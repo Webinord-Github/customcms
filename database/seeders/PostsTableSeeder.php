@@ -24,6 +24,7 @@ class PostsTableSeeder extends Seeder
             'user_id' => 1,
             'slug' => 'post-1',
             'excerpt' => 'My first post.',
+            'image' => 'x.png',
             'status' => 'published',
             'body' => 'My first post.'
         ]);
@@ -34,6 +35,7 @@ class PostsTableSeeder extends Seeder
             'user_id' => 1,
             'slug' => 'post-2',
             'excerpt' => 'My first post.',
+            'image' => 'x.png',
             'status' => 'draft',
             'body' => 'My first post.'
         ]);
@@ -44,6 +46,7 @@ class PostsTableSeeder extends Seeder
             'user_id' => 2,
             'slug' => 'post-3',
             'excerpt' => 'My first post.',
+            'image' => 'x.png',
             'status' => 'draft',
             'body' => 'My first post.'
         ]);
@@ -54,6 +57,7 @@ class PostsTableSeeder extends Seeder
             'user_id' => 2,
             'slug' => 'post-4',
             'excerpt' => 'My first post.',
+            'image' => 'x.png',
             'status' => 'archived',
             'body' => 'My first post.'
         ]);

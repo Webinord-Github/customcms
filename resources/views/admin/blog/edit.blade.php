@@ -5,7 +5,7 @@
 <div class="container flex flex-col items-end justify-start mt-10 py-8">
     <div class="formContainer flex flex-col items-center">
         <h1 class="px-12 py-4 w-10/12 text-2xl pb-12 font-bold">Edit a post</h1>
-        <form class="w-full flex justify-center" action="/admin/posts/update/" method="post">
+        <form class="w-full flex justify-center" action="/admin/posts/update/" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="{{ $post->id }}">
             <div class="px-12 pb-8 flex flex-col items-center w-10/12">
@@ -39,6 +39,33 @@
                     <div class="flex justify-center flex-col">
                         <x-label for="body" :value="__('Content')"></x-label>
                         <textarea style="resize: none; border-radius: 5px;height:100px" name="body">{{ $post->body }}"</textarea>
+                    </div>
+                </div>
+                <div class="w-full mb-2">
+                    <div class="flex justify-center flex-col">
+                        <x-label for="image" :value="__('Image: jpeg, png, jpg, webp')" />
+                        <input type="file" id="image" name="image">
+                    </div>
+                </div>
+                <div class="w-full mb-2">
+                    <div class="flex justify-center flex-col">
+                        <x-label :value="__('Categories')"></x-label>
+                        @foreach ($categories as $category)
+                            <div class="flex items-center">
+                                <?php $i = 0 ?>
+                                @foreach ($categories_selected as $category_selected)
+                                    @if ($category_selected->id == $category->id)
+                                        <?php $i++ ?>
+                                    @endif
+                                @endforeach
+                                @if ($i > 0)
+                                    <input type="checkbox" id="{{ $category->name }}" name="categories[]" value="{{ $category->id }}" checked>
+                                @else
+                                    <input type="checkbox" id="{{ $category->name }}" name="categories[]" value="{{ $category->id }}">
+                                @endif
+                                <label class="mx-1 text-sm" for="{{ $category->name }}">{{ ucfirst($category->name) }}</label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="w-full mb-2">
