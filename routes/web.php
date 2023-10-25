@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\EventsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,13 @@ Route::post('/admin/posts/store', [BlogController::class, 'store'])->middleware(
 Route::get('/admin/posts/update/{id}', [BlogController::class, 'update'])->middleware('auth');
 Route::post('/admin/posts/update/', [BlogController::class, 'storeUpdate'])->middleware('auth');
 Route::get('/admin/posts/destroy/{id}', [BlogController::class, 'destroy'])->middleware('auth');
+
+Route::get('/admin/events', [EventsController::class, 'events'])->name('events')->middleware('auth');
+Route::get('/admin/events/create', [EventsController::class, 'create'])->middleware('auth');
+Route::post('/admin/events/store', [EventsController::class, 'store'])->middleware('auth');
+Route::get('/admin/events/update/{id}', [EventsController::class, 'update'])->middleware('auth');
+Route::post('/admin/events/update/', [EventsController::class, 'storeUpdate'])->middleware('auth');
+Route::get('/admin/events/destroy/{id}', [EventsController::class, 'destroy'])->middleware('auth');
 
 
 require __DIR__.'/auth.php';

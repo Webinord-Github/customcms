@@ -111,10 +111,11 @@ class BlogController extends Controller
             $image_fullname = $image_name . '.' . $image_ext;
             Storage::putFileAs('public/img/posts', $request->image, $image_fullname);
         } else {
-            $image_ext = pathinfo(storage_path('public/img/posts/' . $room->image), PATHINFO_EXTENSION);
+            $image_ext = pathinfo(storage_path('public/img/posts/' . $post->image), PATHINFO_EXTENSION);
             $image_fullname = $image_name . '.' . $image_ext;
-            Storage::move('public/img/posts/' . $room->image, 'public/img/posts/' . $image_name . '.' . $image_ext);
+            Storage::move('public/img/posts/' . $post->image, 'public/img/posts/' . $image_name . '.' . $image_ext);
         }
+        $post->image = $image_fullname;
 
         $post->save();
         $post->categories()->sync($categories_selected);
